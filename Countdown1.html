@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="" content="">
+    <title></title>
+    <style type="text/css" media="all">
+body {
+  align-items: center;
+  text-align: center;
+  padding: 70px 50px;
+  background: #ffd54f;
+  display: flex;
+
+}
+
+#timerxxx {  
+  font-size: 3em;
+  font-weight: 100;
+  color: white;
+  text-shadow: 0 0 20px #48C8FF;
+}
+#timer {  
+  font-size: ;
+  font-weight: bold;
+  color: white;
+}
+  div {
+    display: inline-block;
+    min-width: 90px;
+    
+    span {
+      color: #B1CDF1;
+      display: block;
+      font-size: .35em;
+      font-weight: 400;
+    }
+  }
+}
+
+    </style>
+  </head>
+  <body>
+<div id="timer"></div>
+<div id="timers"></div>
+<div>
+<div id="c_days"></div> Days
+</div>
+<div>
+<div id="c_hours"></div> Hours
+</div>
+<div>
+<div id="c_minutes"></div> Minutes
+</div>
+<div>
+<div id="c_seconds"></div> Seconds
+</div>
+
+
+<script type="text/javascript" charset="utf-8">
+function updateTimer() {
+  future  = Date.parse("June 11, 2022 11:30:00");
+  now     = new Date();
+  diff    = future - now;
+
+  days  = Math.floor( diff / (1000*60*60*24) );
+  hours = Math.floor( diff / (1000*60*60) );
+  mins  = Math.floor( diff / (1000*60) );
+  secs  = Math.floor( diff / 1000 );
+
+  d = days;
+  h = hours - days  * 24;
+  m = mins  - hours * 60;
+  s = secs  - mins  * 60;
+
+  document.getElementById("timer")
+    .innerHTML =
+      '<div>' + d + '<span> days</span></div>' +
+      '<div>' + h + '<span> hours</span></div>' +
+      '<div>' + m + '<span> minutes</span></div>' +
+      '<div>' + s + '<span> seconds</span></div>' ;
+
+  document.getElementById("timers")
+    .innerHTML =
+      '<div>' + d + '<span> days</span></div>' +
+      '<div>' + h + '<span> hours</span></div>' +
+      '<div>' + m + '<span> minutes</span></div>' +
+      '<div>' + s + '<span> seconds</span></div>' ;
+  document.getElementById("c_days")
+    .innerHTML =
+      '<div>' + d + '</div>';
+  document.getElementById("c_hours")
+    .innerHTML = h;
+  document.getElementById("c_minutes")
+    .innerHTML = m;
+  document.getElementById("c_seconds")
+    .innerHTML = s;
+}
+setInterval('updateTimer()', 1000 );
+
+</script>
+  </body>
+</html>
